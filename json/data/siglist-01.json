@@ -4,14 +4,23 @@
         {
             "ntxid": "0000000000000000000000000000000000000000000000000000000000000000",
             "inputs": [
-                [ "", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "" ],
-                [ "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "", "" ]
+                {
+                    "required": 2,
+                    "signatures": [ "", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "" ]
+                },
+                {
+                    "required": 2,
+                    "signatures": [ "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "", "" ]
+                }
             ]
         },
         {
             "ntxid": "1111111111111111111111111111111111111111111111111111111111111111",
             "inputs": [
-                [ "", "", "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" ]
+                {
+                    "required": 2,
+                    "signatures": [ "", "", "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" ]
+                }
             ]
         }
     ]
