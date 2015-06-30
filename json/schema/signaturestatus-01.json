@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Withdrawal signature status",
+    "description": "Status of a withdrawal transaction in terms of the number of signatures needed to finalize a transaction",
+    "type": "object",
+    "properties": {
+        "roundID": {
+            "type": "integer",
+            "description": "A positive integer representing the consensus round for which the withdrawal is associated",
+            "minimum": 0,
+            "exclusiveMinimum": false
+        },
+        "transactions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ntxid": {
+                        "type": "string",
+                        "description": "Hex-encoded normalized transaction id associated with the withdrawal"
+                    },
+                    "inputs": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "description": "Number of signatures remaining before the input is fully signed",
+                            "minimum": 0,
+                            "maximum": 20,
+                            "exclusiveMinimum": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
