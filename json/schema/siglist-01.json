@@ -26,7 +26,7 @@
                             "properties": {
                                 "required": {
                                     "type": "integer",
-                                    "description": "Number of signatures remaining before the input is fully signed",
+                                    "description": "Number of signatures required to fully sign the input",
                                     "minimum": 0,
                                     "maximum": 20,
                                     "exclusiveMinimum": false
