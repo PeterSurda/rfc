@@ -22,10 +22,22 @@
                     "inputs": {
                         "type": "array",
                         "items": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "description": "Hex-encoded ECDSA signature"
+                            "type": "object",
+                            "properties": {
+                                "required": {
+                                    "type": "integer",
+                                    "description": "Number of signatures required to fully sign the input",
+                                    "minimum": 0,
+                                    "maximum": 20,
+                                    "exclusiveMinimum": false
+                                },
+                                "signatures": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "description": "Hex-encoded ECDSA signature"
+                                    }
+                                }
                             }
                         }
                     }
