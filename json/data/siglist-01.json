@@ -1,0 +1,27 @@
+{
+    "roundID": 42,
+    "transactions": [
+        {
+            "ntxid": "0000000000000000000000000000000000000000000000000000000000000000",
+            "inputs": [
+                {
+                    "required": 2,
+                    "signatures": [ "", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "" ]
+                },
+                {
+                    "required": 2,
+                    "signatures": [ "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "", "" ]
+                }
+            ]
+        },
+        {
+            "ntxid": "1111111111111111111111111111111111111111111111111111111111111111",
+            "inputs": [
+                {
+                    "required": 2,
+                    "signatures": [ "", "", "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii" ]
+                }
+            ]
+        }
+    ]
+}
