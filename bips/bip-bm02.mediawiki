@@ -1,0 +1,63 @@
+<pre>
+  BIP:     BM02
+  Title:   Extended Message Encoding
+  Authors: Peter Šurda <dev@mailchuck.com>
+  Status:  Draft
+  Type:    Informational
+  Created: 2016-06-28
+</pre>
+
+==Abstract==
+
+This BIP defines a new message encoding, how it is to be interpreted by Bitmessage, and how its support should be announced and detected for backwards compatibility.
+
+==Motivation==
+
+The current message format only allows two fields, a message subject and a body. This causes problems for transporting and interpreting binary data and data structures.
+
+==Extended encoding wire specification==
+
+We define a new encoding, with a value of 3, labeled EXTENDED. This value is to be used in message objects.
+
+The support is to be indicated in the pubkey object with the bitfield 29 (1 for does support extended, 0 for doesn't). This makes it backwards compatibile, does not require a new object format and does not require to generate a new bitmessage address.
+
+The encoding itself uses msgpack to encode a structure, and zlib to compress it. Both msgpack and zlib are widely used standards with reference implementations in multiple programming languages.
+
+The encoding process sample in python is:
+
+  zlib.compress(msgpack.dumps(data), 9)
+
+The decoding process sample in python is:
+
+  msgpack.loads(zlib.decompress(data))
+
+==Message data structure for extended encoding==
+
+The data structure for encoding is still pending decision. For the time being, an example (in JSON-like format):
+
+  {
+      "": "message" Specifies the type of the object.
+                    The empty string is used as key to ensure
+                    that it is always sorted first.
+      "subject": The message subject
+      "body": The message body
+      "files": [
+          {
+              "name": Filename
+              "mimetype": Mimetype of the file
+              "data": File contents
+          }
+      ]
+      "parents": [root, ..., parent-of-parent, parent]
+      "time": Unix timestamp of when the message was sent
+  }
+
+Only "" is mandatory. If "" is "message", then only subject and body are mandatory.  
+
+==Compatible implementations==
+
+* [[https://github.com/Bitmessage/PyBitmessage|PyBitmessage]] is the reference Bitmessage implementation which uses this specification
+
+==Reference==
+* [[https://www.reddit.com/r/bitmessage/comments/4mcc7x/proposals_for_content_data_structure/|Proposals for content data structure]]
+* [[https://bitmessage.org/wiki/Protocol_specification|Protocol specification]]
